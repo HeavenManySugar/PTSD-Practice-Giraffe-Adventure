@@ -54,6 +54,8 @@ private:
     std::shared_ptr<PhaseResourceManger> m_PRM;
 
     bool m_EnterDown = false;
+
+    int firstTime = 0;
 };
 
 #endif

@@ -29,12 +29,16 @@ public:
 
     // TODO: Implement the collision detection
     [[nodiscard]] bool IfCollides(const std::shared_ptr<Character>& other) const {
-        (void) other;
-        return false;
+        if (    m_Transform.translation.x + GetScaledSize().x/2 >= other->m_Transform.translation.x - other->GetScaledSize().x/2 &&
+                m_Transform.translation.x - GetScaledSize().x/2 <= other->m_Transform.translation.x + other->GetScaledSize().x/2 &&
+                m_Transform.translation.y + GetScaledSize().y/2 >= other->m_Transform.translation.y - other->GetScaledSize().y/2 &&
+                m_Transform.translation.y - GetScaledSize().y/2 <= other->m_Transform.translation.y + other->GetScaledSize().y/2)
+            return true;
+        else
+            return false;
     }
 
     // TODO: Add and implement more methods and properties as needed to finish Giraffe Adventure.
-
 private:
     void ResetPosition() { m_Transform.translation = {0, 0}; }
 

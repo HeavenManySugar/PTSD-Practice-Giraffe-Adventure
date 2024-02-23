@@ -21,10 +21,29 @@ public:
         return std::dynamic_pointer_cast<Util::Animation>(m_Drawable)->GetState() == Util::Animation::State::PLAY;
     }
 
+    [[nodiscard]] bool GetVisibility() const { return m_Visible; }
+
     void SetLooping(bool looping) {
-        auto temp = std::dynamic_pointer_cast<Util::Animation>(m_Drawable);
-        temp->SetLooping(looping);
+        auto animation = std::dynamic_pointer_cast<Util::Animation>(m_Drawable);
+        animation->SetLooping(looping);
     }
+    
+    void Play() {
+        auto animation = std::dynamic_pointer_cast<Util::Animation>(m_Drawable);
+        animation->Play();
+    }
+
+    void Pause() {
+        auto animation = std::dynamic_pointer_cast<Util::Animation>(m_Drawable);
+        animation->Pause();
+    }
+
+    int GetState() const {
+        auto animation = std::dynamic_pointer_cast<Util::Animation>(m_Drawable);
+        return static_cast<int>(animation->GetState());
+    }
+
+    void SetPosition(const glm::vec2& Position) { m_Transform.translation = Position; }
 
     [[nodiscard]] bool IfAnimationEnds() const;
 
