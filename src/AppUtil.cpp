@@ -83,11 +83,17 @@ void App::ValidTask() {
 
         case Phase::COUNTDOWN:
             if (m_Ball->IfAnimationEnds()) {
+                m_Phase = Phase::END;
                 LOG_DEBUG("Congratulations! You have completed Giraffe Adventure!");
-                m_CurrentState = State::END;
+                m_Ball->SetVisible(false);
+
+                m_PRM->NextPhase();
             } else{
                 LOG_DEBUG("The ball animation is not ended");
             }
             break;
+
+        case Phase::END:
+            m_CurrentState = State::END;
     }
 }

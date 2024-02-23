@@ -36,6 +36,7 @@ private:
         BEE_ANIMATION,
         OPEN_THE_DOORS,
         COUNTDOWN,
+        END,
     };
 
 
