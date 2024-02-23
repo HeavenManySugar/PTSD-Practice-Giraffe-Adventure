@@ -40,8 +40,8 @@ void App::Start() {
 
     std::vector<std::string> ballImages;
     ballImages.reserve(4);
-    for (int i = 0; i < 1000; ++i) {
-        ballImages.emplace_back(GA_RESOURCE_DIR"/Image/Character/ball-" + std::to_string(i%3 + 1) + ".png");
+    for (int i = 0; i < 3; ++i) {
+        ballImages.emplace_back(GA_RESOURCE_DIR"/Image/Character/ball-" + std::to_string(i + 1) + ".png");
     }
     ballImages.emplace_back(GA_RESOURCE_DIR"/Image/Character/ball-ok.png");
 

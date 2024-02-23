@@ -38,11 +38,6 @@ public:
         animation->Pause();
     }
 
-    int GetState() const {
-        auto animation = std::dynamic_pointer_cast<Util::Animation>(m_Drawable);
-        return static_cast<int>(animation->GetState());
-    }
-
     void SetPosition(const glm::vec2& Position) { m_Transform.translation = Position; }
 
     [[nodiscard]] bool IfAnimationEnds() const;
